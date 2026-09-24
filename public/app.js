@@ -71,7 +71,16 @@ investBtn.addEventListener("click", async () => {
       return;
     }
 
-    summaryText.textContent = `You bought ${data.goldSold} ounces (ozt) for Rp${formatRupiah(data.amountPaid)}. The sale has executed and we're preparing your documentation.`;
+    summaryText.innerHTML = `
+      You bought ${data.goldSold} ounces (ozt) for Rp${formatRupiah(data.amountPaid)}.
+      The sale has executed and we're preparing your documentation.
+      <br><br>
+      <a href="${data.invoiceUrl}" target="_blank" style="color:#d4af37; font-weight:bold;">
+        📄 Download Invoice (PDF)
+      </a>
+      <br>
+      <small style="color:#aaa;">Confirmation email sent (mocked) ✅</small>
+    `;
     overlay.classList.remove("hidden");
   } catch (err) {
     alert("Something went wrong. Please try again.");
