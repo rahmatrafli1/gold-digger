@@ -1,43 +1,52 @@
 <!doctype html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="GoldDigger - Invest in gold with ease. Get live prices and make informed decisions.">
-    <link rel="stylesheet" href="index.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-    href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100..900;1,100..900&family=Saira+Stencil+One&display=swap"
-    rel="stylesheet">
+  <head>
+    <meta charset="UTF-8" />
     <title>GoldDigger</title>
-</head>
+    <link rel="stylesheet" href="index.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100..900;1,100..900&family=Saira+Stencil+One&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="app">
+      <h1 class="logo">GoldDigger</h1>
 
-<body>
-    <main>
-        <h1 class="title">GoldDigger</h1>
-        <img src="gold.png" alt="gold bars and nuggets">
-        <section class="price-info-container">
-            <p>£<span id="price-display" class="price" aria-live="assertive">----.--</span> / Oz*</p>
-            <p id="connection-status" class="status" aria-live="polite">Live Price 🟢</p>
-        </section>
-        <form>
-            <label for="investment-amount">Amount to invest</label>
-            <div class="input-container">
-                <div class="currency">£</div>
-                <input type="number" id="investment-amount" placeholder="100.00" required>
-            </div>
-            <button id="invest-btn" class="invest-btn" aria-label="Invest in gold now">Invest Now!</button>
-        </form>
-        <!-- This dialog opens after a successful purchase -->
-        <dialog class="outputs" role="dialog" aria-labelledby="dialog-title" aria-describedby="investment-summary" lang="en">
-            <h2>Summary</h2>
-            <p id="investment-summary">You just bought 1.3 ounces (ozt) for £3000. \n You will receive documentation shortly.</p>
-                <button aria-label="Close dialog and return to main page" autofocus>OK</button>
-        </dialog>
-        <p class="footnote">* 1oz = 1 troy ounce of 24 Carat Gold</p>
-    </main>
-    <script type="module" src="index.js"></script>
-</body>
+      <img src="gold.png" alt="Gold bars" class="gold-image" />
+
+      <div class="field">
+        <label>
+          <span id="statusLabel">Disconnected</span>
+          <span id="statusDot" class="dot dot-red"></span>
+        </label>
+        <div class="price-box" id="priceBox">Rp----.-- / Oz*</div>
+      </div>
+
+      <div class="field">
+        <label>Amount to invest</label>
+        <div class="amount-box">
+          <span class="currency">Rp</span>
+          <input type="number" id="amountInput" placeholder="100000" disabled />
+        </div>
+      </div>
+
+      <button id="investBtn" class="invest-btn" disabled>Invest Now!</button>
+
+      <p class="footnote">* 1oz = 1 troy ounce of 24 Carat Gold</p>
+    </div>
+
+    <!-- Popup Summary -->
+    <div id="overlay" class="overlay hidden">
+      <div class="popup">
+        <h2>Summary</h2>
+        <p id="summaryText"></p>
+        <button id="okBtn" class="ok-btn">OK</button>
+      </div>
+    </div>
+
+    <script src="/app.js"></script>
+  </body>
 </html>
