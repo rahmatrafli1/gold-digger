@@ -10,10 +10,13 @@ body {
   justify-content: center;
   align-items: center;
   background: linear-gradient(to bottom, #3a3a3a, #1a1a1a);
+  padding: 24px;
+  box-sizing: border-box;
 }
 
 .app {
-  width: 320px;
+  width: 100%;
+  max-width: 320px;
   padding: 24px;
   background: #1a1a1a;
   border: 1px solid #d4af37;
